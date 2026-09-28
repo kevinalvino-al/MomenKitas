@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Romeo & Juliet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-wedding { font-family: 'Sacramento', cursive; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-rose-50 text-slate-700 relative overflow-x-hidden">
+
+    <!-- COVER SAMPUL OVERLAY -->
+    <div id="cover" class="fixed inset-0 z-50 bg-rose-950 text-white flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
+        <div class="space-y-4 max-w-md">
+            <p class="text-rose-300 tracking-widest text-sm uppercase">The Wedding Of</p>
+            <h1 class="text-6xl font-wedding text-rose-200">Romeo & Juliet</h1>
+            <p class="text-slate-300 text-sm">Kepada Yth Bapak/Ibu/Saudara/i:</p>
+            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">
+                <p class="text-lg font-bold" id="namaTamu">Tamu Undangan</p>
+            </div>
+            <button onclick="bukaUndangan()" class="mt-6 px-8 py-3 bg-rose-500 hover:bg-rose-600 rounded-full font-semibold shadow-lg transition-all animate-bounce">
+                <i class="fa-solid fa-envelope-open mr-2"></i> Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- AUDIO PLAYER -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <button id="musicBtn" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-rose-500 text-white rounded-full flex items-center justify-center shadow-2xl hidden">
+        <i id="musicIcon" class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- KONTEN UTAMA -->
+    <main class="max-w-md mx-auto bg-white min-h-screen shadow-2xl relative">
+        <!-- HEADER -->
+        <section class="h-screen bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80')] bg-cover bg-center relative flex items-end p-8 text-white">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            <div class="relative z-10 space-y-2">
+                <p class="text-rose-300 font-light tracking-widest uppercase text-xs">Kami Mengundang Anda</p>
+                <h2 class="text-5xl font-wedding text-rose-200">Romeo & Juliet</h2>
+                <p class="text-xs text-slate-300">Sabtu, 12 Desember 2026</p>
+            </div>
+        </section>
+
+        <!-- COUNTDOWN -->
+        <section class="py-12 px-6 bg-rose-50 text-center">
+            <h3 class="text-xl font-bold mb-6 text-slate-800">Menuju Hari Bahagia</h3>
+            <div class="grid grid-cols-4 gap-2 text-center" id="countdown">
+                <div class="bg-white p-3 rounded-lg shadow-sm"><span id="days" class="block text-2xl font-bold text-rose-500">0</span><span class="text-[10px] uppercase text-slate-400">Hari</span></div>
+                <div class="bg-white p-3 rounded-lg shadow-sm"><span id="hours" class="block text-2xl font-bold text-rose-500">0</span><span class="text-[10px] uppercase text-slate-400">Jam</span></div>
+                <div class="bg-white p-3 rounded-lg shadow-sm"><span id="minutes" class="block text-2xl font-bold text-rose-500">0</span><span class="text-[10px] uppercase text-slate-400">Menit</span></div>
+                <div class="bg-white p-3 rounded-lg shadow-sm"><span id="seconds" class="block text-2xl font-bold text-rose-500">0</span><span class="text-[10px] uppercase text-slate-400">Detik</span></div>
+            </div>
+        </section>
+
+        <!-- LOKASI / GOOGLE MAPS -->
+        <section class="py-12 px-6 text-center space-y-4">
+            <h3 class="text-2xl font-wedding text-rose-500 text-3xl">Lokasi Acara</h3>
+            <p class="font-bold">Gedung Pernikahan Indah</p>
+            <p class="text-xs text-slate-500">Jl. Melati No. 123, Jakarta Selatan</p>
+            <div class="w-full h-48 rounded-2xl overflow-hidden shadow-md my-4">
+                <iframe class="w-full h-full border-none" src="https://maps.google.com/maps?q=Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="inline-block px-6 py-2.5 bg-slate-900 text-white rounded-full text-xs font-semibold shadow-md">
+                <i class="fa-solid fa-location-arrow mr-1"></i> Buka Google Maps
+            </a>
+        </section>
+
+        <!-- FORM RSVP WHATSAPP -->
+        <section class="py-12 px-6 bg-slate-50 border-t border-slate-100">
+            <h3 class="text-xl font-bold text-center mb-6">Konfirmasi Kehadiran</h3>
+            <form id="rsvpForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Lengkap</label>
+                    <input type="text" id="rsvpNama" required class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:border-rose-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Kehadiran</label>
+                    <select id="rsvpStatus" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:border-rose-500">
+                        <option value="Hadir">Ya, Saya Akan Hadir</option>
+                        <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Pesan / Ucapan</label>
+                    <textarea id="rsvpPesan" rows="3" class="w-full px-4 py-2.5 text-sm rounded-xl border border-slate-200 focus:outline-none focus:border-rose-500" placeholder="Selamat atas pernikahannya..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm shadow-md transition">
+                    <i class="fa-brands fa-whatsapp mr-1"></i> Kirim RSVP via WhatsApp
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Tangkap nama tamu dari URL query (?to=NamaTamu)
+        const urlParams = new URLSearchParams(window.location.search);
+        const tamu = urlParams.get('to');
+        if(tamu) {
+            document.getElementById('namaTamu').innerText = tamu;
+        }
+
+        // Buka Undangan & Musik Auto-play
+        function bukaUndangan() {
+            document.getElementById('cover').classList.add('-translate-y-full');
+            document.getElementById('musicBtn').classList.remove('hidden');
+            let music = document.getElementById('bgMusic');
+            music.play();
+        }
+
+        function toggleMusic() {
+            let music = document.getElementById('bgMusic');
+            let icon = document.getElementById('musicIcon');
+            if (music.paused) {
+                music.play();
+                icon.className = "fa-solid fa-music";
+            } else {
+                music.pause();
+                icon.className = "fa-solid fa-volume-xmark";
+            }
+        }
+
+        // Form RSVP Kirim ke WhatsApp
+        document.getElementById('rsvpForm')?.addEventListener('submit', function(e){
+            e.preventDefault();
+            let nama = document.getElementById('rsvpNama').value;
+            let status = document.getElementById('rsvpStatus').value;
+            let pesan = document.getElementById('rsvpPesan').value;
+            let nomorWA = "6281234567890"; // Ganti dengan Nomor WA Pemilik Acara/Admin
+
+            let text = `Halo, Saya *${nama}*%0AKehadiran: *${status}*%0APesan: ${pesan}`;
+            window.open(`https://wa.me/${nomorWA}?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
