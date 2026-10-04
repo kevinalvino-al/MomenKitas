@@ -3,63 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MomenKita - Jasa Pembuatan Undangan Digital Elegat & Interaktif</title>
-    <!-- Tailwind CSS CDN -->
+    <title>MomenKita - Jasa Undangan Digital Web Praktis & Elegan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif-custom { font-family: 'Playfair Display', serif; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-100">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <span class="text-2xl font-bold bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">MomenKita</span>
+                <span class="text-2xl font-bold bg-gradient-to-r from-rose-500 to-indigo-600 bg-clip-text text-transparent">MomenKita</span>
             </div>
-            <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600">
-                <a href="#fitur" class="hover:text-rose-500 transition-colors">Fitur</a>
-                <a href="#tema" class="hover:text-rose-500 transition-colors">Tema</a>
-                <a href="#harga" class="hover:text-rose-500 transition-colors">Harga</a>
-                <a href="#testimoni" class="hover:text-rose-500 transition-colors">Testimoni</a>
+            
+            <div class="hidden md:flex items-center space-x-8 font-medium text-slate-600 text-sm">
+                <a href="#fitur" class="hover:text-rose-500 transition">Fitur</a>
+                <a href="#tema" class="hover:text-rose-500 transition">Tema</a>
+                <a href="#harga" class="hover:text-rose-500 transition">Harga</a>
+                <a href="#testimoni" class="hover:text-rose-500 transition">Testimoni</a>
+                <a href="survei.html" target="_blank" class="text-indigo-600 font-semibold hover:text-indigo-700 transition flex items-center gap-1.5 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-100">
+                    <i class="fa-solid fa-clipboard-question text-xs"></i> Survei Feedback
+                </a>
             </div>
-            <a href="demo-undangan.html" target="_blank" class="px-5 py-2.5 rounded-full bg-slate-900 text-white font-medium text-sm hover:bg-rose-500 transition-all duration-300 shadow-md">Lihat Demo Live</a>
+
+            <a href="demo-undangan.html" target="_blank" class="px-5 py-2.5 rounded-full bg-rose-500 text-white font-semibold hover:bg-rose-600 shadow-md shadow-rose-200 transition text-sm">
+                Lihat Demo Live
+            </a>
         </div>
     </nav>
-<div class="nav-links">
-    <a href="#fitur">Fitur</a>
-    <a href="#tema">Tema</a>
-    <a href="#harga">Harga</a>
-    <a href="#testimoni">Testimoni</a>
-    <!-- TAMBAHKAN LINE DI BAWAH INI -->
-    <a href="survei.html" target="_blank" style="color: #6366f1; font-weight: 600;">Survei MomenKita</a>
-</div>
+
     <!-- HERO SECTION -->
-    <section class="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden relative">
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-rose-50/50 via-white to-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-center lg:text-left">
-                    <span class="inline-block px-4 py-1.5 rounded-full bg-rose-50 text-rose-600 font-semibold text-xs tracking-wider uppercase border border-rose-200">#1 Undangan Digital Kekinian</span>
+                    <span class="inline-block px-4 py-1.5 bg-rose-100 text-rose-600 font-bold rounded-full text-xs uppercase tracking-wider">#1 Undangan Digital Kekinian</span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
-                        Bagikan Momen Spesialmu Tanpa Batas dengan <span class="bg-gradient-to-r from-rose-500 to-pink-600 bg-clip-text text-transparent">Undangan Digital</span>
+                        Bagikan Momen Spesialmu Tanpa Batas dengan <span class="bg-gradient-to-r from-rose-500 to-indigo-600 bg-clip-text text-transparent">Undangan Digital</span>
                     </h1>
-                    <p class="text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
-                        Hemat biaya, praktis, dan elegan. Dilengkapi dengan RSVP WhatsApp, Galeri Foto, Musik Latar, Hitung Mundur, dan Peta Google Maps.
+                    <p class="text-slate-600 text-lg max-w-xl mx-auto lg:mx-0">
+                        Hemat biaya, praktis, dan elegan. Dilengkapi dengan RSVP WhatsApp, Galeri Foto, Musik Latar, Hitung Mundur, dan Navigasi Google Maps.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <a href="#harga" class="px-8 py-4 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-bold shadow-lg shadow-rose-200 transition-all text-center">Buat Undangan Sekarang</a>
-                        <a href="demo-undangan.html" target="_blank" class="px-8 py-4 rounded-full bg-white text-slate-700 hover:bg-slate-100 font-bold border border-slate-200 shadow-sm transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-play text-rose-500"></i> Coba Demo
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#harga" class="w-full sm:w-auto px-8 py-4 bg-rose-500 text-white font-bold rounded-2xl hover:bg-rose-600 shadow-lg shadow-rose-200 text-center transition">Buat Undangan Sekarang</a>
+                        <a href="survei.html" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 text-center transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-pen-to-square text-indigo-500"></i> Isi Survei Pengguna
                         </a>
                     </div>
                 </div>
-                <!-- Mockup Preview -->
+
+                <!-- Preview Smartphone Mockup -->
                 <div class="relative flex justify-center">
-                    <div class="w-full max-w-[320px] bg-slate-900 rounded-[40px] p-3 shadow-2xl ring-1 ring-slate-900/10">
-                        <div class="bg-white rounded-[32px] overflow-hidden border border-slate-800">
-                            <iframe src="demo-undangan.html" class="w-full h-[580px] border-none" title="Live Preview"></iframe>
+                    <div class="w-72 sm:w-80 h-[550px] bg-slate-900 rounded-[48px] p-4 shadow-2xl border-4 border-slate-800 relative z-10">
+                        <div class="w-full h-full bg-white rounded-[36px] overflow-hidden flex flex-col items-center justify-center p-6 text-center relative bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80');">
+                            <span class="text-xs uppercase tracking-widest text-rose-200 font-semibold mb-2">The Wedding Of</span>
+                            <h2 class="text-3xl font-serif-custom text-white mb-4">Romeo & Juliet</h2>
+                            <p class="text-xs text-slate-200 mb-6">Kepada Yth Bapak/Ibu/Saudara/i:</p>
+                            <div class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-xl text-white text-sm font-medium border border-white/30">
+                                Tamu Undangan
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,69 +74,183 @@
         </div>
     </section>
 
-    <!-- FITUR -->
+    <!-- FITUR SECTION -->
     <section id="fitur" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-slate-900">Fitur Undangan Lengkap</h2>
-                <p class="text-slate-600 mt-2">Semua yang Anda butuhkan untuk membuat undangan pernikahan impian yang mengesan pelanggan.</p>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Fitur Undangan Lengkap</h2>
+                <p class="text-slate-600">Semua yang Anda butuhkan untuk membuat undangan pernikahan impian yang mengesan pelanggan.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-rose-200 transition">
-                    <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fa-solid fa-[#000] fa-mobile-screen-button"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Responsif Smartphone</h3>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 bg-rose-500/10 text-rose-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-rose-500 group-hover:text-white transition">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Responsif Smartphone</h3>
                     <p class="text-slate-600 text-sm">Tampilan sangat nyaman diakses dari smartphone, tablet, maupun laptop/PC.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-rose-200 transition">
-                    <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fa-brands fa-whatsapp"></i></div>
-                    <h3 class="text-xl font-bold mb-2">RSVP & Ucapan via WA</h3>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 bg-emerald-500/10 text-emerald-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-white transition">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">RSVP & Ucapan via WA</h3>
                     <p class="text-slate-600 text-sm">Konfirmasi kehadiran dan ucapan dari tamu langsung terisi otomatis ke WhatsApp Anda.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-rose-200 transition">
-                    <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-xl flex items-center justify-center text-xl mb-6"><i class="fa-solid fa-map-location-dot"></i></div>
-                    <h3 class="text-xl font-bold mb-2">Navigasi Peta Lokasi</h3>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
+                    <div class="w-14 h-14 bg-indigo-500/10 text-indigo-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-indigo-500 group-hover:text-white transition">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Navigasi Peta Lokasi</h3>
                     <p class="text-slate-600 text-sm">Terhubung langsung ke Google Maps memudahkan tamu menuju ke lokasi acara.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FORM ORDER / PAKET HARGA -->
-    <section id="harga" class="py-20 bg-slate-100">
+    <!-- TEMA SECTION (BARU) -->
+    <section id="tema" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-slate-900">Pilih Paket Undangan</h2>
-                <p class="text-slate-600 mt-2">Harga terjangkau tanpa biaya tersembunyi. Aktif selamanya.</p>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-rose-500 font-bold text-sm tracking-wider uppercase">Pilihan Desain</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-4">Pilihan Tema Undangan Elegan</h2>
+                <p class="text-slate-600">Berbagai tema menarik yang dirancang khusus sesuai gaya dan konsep acara Anda.</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Paket Hemat -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-900">Paket Basic</h3>
-                        <p class="text-3xl font-black text-rose-500 my-4">Rp 49.000</p>
-                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Aktif 6 Bulan</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>RSVP WhatsApp</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Google Maps Lokasi</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Maksimal 5 Foto Galeri</li>
-                        </ul>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tema 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover" alt="Floral Rose">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full">Romantis</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Floral Elegance</h3>
+                        <p class="text-slate-600 text-sm mb-4">Desain bunga-bunga lembut dengan nuansa warna pastel yang anggun.</p>
+                        <a href="demo-undangan.html" target="_blank" class="text-rose-500 font-semibold text-sm hover:underline">Pratinjau Tema &rarr;</a>
                     </div>
-                    <button onclick="pesanSekarang('Basic', '49.000')" class="w-full py-3 rounded-full border border-rose-500 text-rose-500 font-bold hover:bg-rose-50 transition">Pesan Basic</button>
                 </div>
-                <!-- Paket Populer -->
-                <div class="bg-white p-8 rounded-3xl shadow-xl border-2 border-rose-500 relative flex flex-col justify-between">
-                    <span class="absolute -top-4 right-8 bg-rose-500 text-white text-xs px-4 py-1 rounded-full font-bold">PALING LARIS</span>
+                <!-- Tema 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover" alt="Rustic Gold">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">Klasik</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Rustic Gold</h3>
+                        <p class="text-slate-600 text-sm mb-4">Kombinasi ornamen emas dan warna kayu yang hangat dan mewah.</p>
+                        <a href="demo-undangan.html" target="_blank" class="text-rose-500 font-semibold text-sm hover:underline">Pratinjau Tema &rarr;</a>
+                    </div>
+                </div>
+                <!-- Tema 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover" alt="Modern Minimalist">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">Modern</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Modern Minimalist</h3>
+                        <p class="text-slate-600 text-sm mb-4">Tampilan simpel, bersih, dan estetik dengan gaya layout terkini.</p>
+                        <a href="demo-undangan.html" target="_blank" class="text-rose-500 font-semibold text-sm hover:underline">Pratinjau Tema &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HARGA SECTION -->
+    <section id="harga" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Pilih Paket Undangan</h2>
+                <p class="text-slate-600">Harga terjangkau tanpa biaya tersembunyi. Aktif selamanya.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Paket Basic -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-900">Paket Premium</h3>
-                        <p class="text-3xl font-black text-rose-500 my-4">Rp 99.000</p>
-                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Masa Aktif Selamanya</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Fitur Lagu Background</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Galeri Unlimted Foto</li>
-                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Amplop Digital (Bank / E-Wallet)</li>
+                        <h3 class="text-xl font-bold text-slate-900">Paket Basic</h3>
+                        <div class="my-4">
+                            <span class="text-4xl font-extrabold text-slate-900">Rp 49.000</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 text-sm mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Aktif 6 Bulan</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> RSVP WhatsApp</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Google Maps Lokasi</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Maksimal 5 Foto Galeri</li>
                         </ul>
                     </div>
-                    <button onclick="pesanSekarang('Premium', '99.000')" class="w-full py-3 rounded-full bg-rose-500 text-white font-bold hover:bg-rose-600 transition shadow-lg shadow-rose-200">Pesan Premium</button>
+                    <button class="w-full py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition">Pilih Basic</button>
+                </div>
+
+                <!-- Paket Premium -->
+                <div class="p-8 rounded-3xl bg-rose-500 text-white border-2 border-rose-400 shadow-xl relative flex flex-col justify-between">
+                    <span class="absolute -top-3.5 right-6 bg-amber-400 text-slate-900 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider">PALING LARIS</span>
+                    <div>
+                        <h3 class="text-xl font-bold">Paket Premium</h3>
+                        <div class="my-4">
+                            <span class="text-4xl font-extrabold">Rp 99.000</span>
+                        </div>
+                        <ul class="space-y-3 text-rose-100 text-sm mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Masa Aktif Selamanya</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Fitur Lagu Background</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Galeri Unlimited Foto</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Amplop Digital (Bank / E-Wallet)</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 bg-white text-rose-600 font-bold rounded-xl hover:bg-rose-50 transition shadow-md">Pilih Premium</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI SECTION (BARU) -->
+    <section id="testimoni" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-rose-500 font-bold text-sm tracking-wider uppercase">Kata Mereka</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-4">Testimoni Pengguna</h2>
+                <p class="text-slate-600">Pengalaman nyata dari para pasangan yang mempercayakan momen bahagianya pada MomenKita.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testi 1 -->
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-4">"Praktis banget! Teman-teman pada puji desain undangannya estetik dan pas kirim RSVP langsung masuk WhatsApp."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-sm">R</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Rian & Maya</h4>
+                            <p class="text-xs text-slate-400">Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-4">"Harganya sangat murah untuk fitur selengkap ini. Galeri fotonya keren dan ada lagu background-nya juga!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center text-sm">D</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Dito & Sarah</h4>
+                            <p class="text-xs text-slate-400">Bandung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-4">"Fitur Amplop Digitalnya sangat membantu tamu yang berhalangan hadir untuk kirim kado langsung."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 font-bold flex items-center justify-center text-sm">F</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Fikri & Aulia</h4>
+                            <p class="text-xs text-slate-400">Surabaya</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,9 +265,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-
-    <!-- Tombol Melayang Survei -->
+    <!-- TOMBOL MELAYANG SURVEI -->
     <a href="survei.html" target="_blank" style="
         position: fixed;
         bottom: 24px;

@@ -3,493 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survei & Umpan Balik MomenKita</title>
+    <title>Survei Umpan Balik Pengguna - MomenKita</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        rose: {
-                            50: '#fff1f2',
-                            100: '#ffe4e6',
-                            200: '#fecdd3',
-                            300: '#fda4af',
-                            400: '#fb7185',
-                            500: '#f43f5e',
-                            600: '#e11d48',
-                        },
-                        cream: {
-                            50: '#fdfbf7',
-                            100: '#f7f3eb',
-                            200: '#efe6d5',
-                        },
-                        amber: {
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .glass-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(253, 164, 175, 0.25);
-        }
-        .star-rating i {
-            transition: transform 0.2s, color 0.2s;
-        }
-        .star-rating i:hover {
-            transform: scale(1.25);
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-cream-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between selection:bg-rose-200">
+<body class="bg-slate-50 text-slate-800 min-h-screen py-10 px-4">
 
-    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-rose-100 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-400 to-amber-400 flex items-center justify-center text-white shadow-md">
-                    <i class="fa-solid font-bold fa-heart text-lg"></i>
-                </div>
-                <div>
-                    <h1 class="font-serif font-bold text-lg md:text-xl text-rose-600 tracking-wide">MomenKita</h1>
-                    <p class="text-xs text-slate-500">Platform Undangan Digital Modern</p>
-                </div>
-            </div>
-            <a href="https://kevinalvino-al.github.io/MomenKitas/" target="_blank" rel="noopener noreferrer" 
-               class="inline-flex items-center gap-1.5 text-xs md:text-sm font-medium text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-full transition">
-                <span>Lihat Website</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Progress Bar -->
-    <div class="sticky top-[61px] z-30 w-full bg-rose-100 h-1.5">
-        <div id="progressBar" class="bg-gradient-to-r from-rose-400 to-amber-500 h-1.5 w-0 transition-all duration-300"></div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="max-w-3xl mx-auto px-4 py-8 w-full flex-grow">
-        
-        <!-- Hero Introduction -->
-        <div class="text-center mb-8 bg-gradient-to-br from-rose-50 via-white to-amber-50 p-6 md:p-8 rounded-3xl border border-rose-100 shadow-sm">
-            <span class="inline-block px-3 py-1 bg-rose-100 text-rose-600 text-xs font-semibold rounded-full mb-3">
-                <i class="fa-regular fa-paper-plane mr-1"></i> Form Survei Pengguna
-            </span>
-            <h2 class="font-serif text-2xl md:text-4xl font-bold text-slate-800 mb-3">
-                Bantu Kami Mengembangkan <span class="text-rose-500">MomenKita</span>
-            </h2>
-            <p class="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-                Terima kasih telah menyempatkan waktu! Masukan Anda sangat berharga untuk membuat platform undangan digital kami menjadi lebih menarik, praktis, dan terjangkau.
-            </p>
+    <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-rose-500 via-purple-600 to-indigo-600 p-8 text-white text-center">
+            <span class="inline-block bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-2">Evaluasi Platform</span>
+            <h1 class="text-3xl font-extrabold mb-2">Survei Pengalaman MomenKita</h1>
+            <p class="text-rose-100 text-sm max-w-md mx-auto">Bantu kami meningkatkan kualitas website undangan digital ini dengan masukan & saran dari Anda.</p>
         </div>
 
-        <!-- Form Container -->
-        <form id="surveyForm" onsubmit="handleFormSubmit(event)" class="space-y-8">
-
-            <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">1</div>
-                    <h3 class="font-semibold text-lg text-slate-800">Informasi Responden</h3>
-                </div>
-
-                <div class="space-y-4">
+        <!-- Form Survei -->
+        <form id="surveyForm" class="p-6 md:p-8 space-y-8">
+            <!-- 1. Identitas -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 border-b pb-2 flex items-center gap-2">
+                    <span class="w-6 h-6 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                    Informasi Pengisi
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <label for="fullName" class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap <span class="text-rose-500">*</span></label>
-                        <input type="text" id="fullName" required placeholder="Masukkan nama Anda"
-                               class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-100 outline-none transition text-sm">
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Lengkap *</label>
+                        <input type="text" id="nama" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none text-sm transition">
                     </div>
-
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-2">Status / Peran Anda <span class="text-rose-500">*</span></label>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <label class="cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center gap-1.5 hover:border-rose-300 has-[:checked]:border-rose-500 has-[:checked]:bg-rose-50/50 transition">
-                                <input type="radio" name="role" value="Teman / Sahabat" required class="accent-rose-500">
-                                <span class="text-xs font-medium text-slate-700">Teman / Sahabat</span>
-                            </label>
-                            <label class="cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center gap-1.5 hover:border-rose-300 has-[:checked]:border-rose-500 has-[:checked]:bg-rose-50/50 transition">
-                                <input type="radio" name="role" value="Kerabat / Keluarga" class="accent-rose-500">
-                                <span class="text-xs font-medium text-slate-700">Kerabat / Keluarga</span>
-                            </label>
-                            <label class="cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center gap-1.5 hover:border-rose-300 has-[:checked]:border-rose-500 has-[:checked]:bg-rose-50/50 transition">
-                                <input type="radio" name="role" value="Calon Pengantin" class="accent-rose-500">
-                                <span class="text-xs font-medium text-slate-700">Calon Pengantin</span>
-                            </label>
-                            <label class="cursor-pointer border rounded-xl p-3 flex flex-col items-center justify-center gap-1.5 hover:border-rose-300 has-[:checked]:border-rose-500 has-[:checked]:bg-rose-50/50 transition">
-                                <input type="radio" name="role" value="Lainnya" class="accent-rose-500">
-                                <span class="text-xs font-medium text-slate-700">Lainnya</span>
-                            </label>
-                        </div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Status / Peran *</label>
+                        <select id="status" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-rose-500 outline-none text-sm bg-white">
+                            <option value="">-- Pilih Status --</option>
+                            <option value="Calon Pengantin">Calon Pengantin</option>
+                            <option value="Tamu Undangan">Tamu Undangan</option>
+                            <option value="Teman / Kerabat">Teman / Kerabat</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
                     </div>
                 </div>
             </div>
 
-            <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">2</div>
-                    <h3 class="font-semibold text-lg text-slate-800">Tampilan & Desain Website</h3>
-                </div>
-
-                <div class="space-y-5">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-2">
-                            Bagaimana penilaian Anda terhadap keindahan & kenyamanan visual MomenKita? <span class="text-rose-500">*</span>
+            <!-- 2. Penilaian Desain & Kemudahan -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 border-b pb-2 flex items-center gap-2">
+                    <span class="w-6 h-6 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                    Desain & Kemudahan (UI/UX)
+                </h3>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Seberapa menarik tampilan visual website MomenKita?</label>
+                    <div class="grid grid-cols-5 gap-2 text-center">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="desain" value="1" required class="peer hidden">
+                            <div class="py-2 rounded-xl border border-slate-200 peer-checked:bg-rose-500 peer-checked:text-white peer-checked:border-rose-500 text-sm font-bold text-slate-600 hover:bg-slate-50">1 ⭐</div>
                         </label>
-                        <div class="flex items-center gap-2 star-rating" id="designRatingContainer">
-                            <!-- Star Buttons Dynamic Input -->
-                            <button type="button" onclick="setStarRating(1)" class="text-2xl text-slate-300 hover:text-amber-400 focus:outline-none"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" onclick="setStarRating(2)" class="text-2xl text-slate-300 hover:text-amber-400 focus:outline-none"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" onclick="setStarRating(3)" class="text-2xl text-slate-300 hover:text-amber-400 focus:outline-none"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" onclick="setStarRating(4)" class="text-2xl text-slate-300 hover:text-amber-400 focus:outline-none"><i class="fa-solid fa-star"></i></button>
-                            <button type="button" onclick="setStarRating(5)" class="text-2xl text-slate-300 hover:text-amber-400 focus:outline-none"><i class="fa-solid fa-star"></i></button>
-                            <span id="ratingLabel" class="ml-3 text-xs font-semibold text-slate-500">Pilih rating</span>
-                        </div>
-                        <input type="hidden" id="designRating" name="designRating" required>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="desain" value="2" class="peer hidden">
+                            <div class="py-2 rounded-xl border border-slate-200 peer-checked:bg-rose-500 peer-checked:text-white peer-checked:border-rose-500 text-sm font-bold text-slate-600 hover:bg-slate-50">2 ⭐</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="desain" value="3" class="peer hidden">
+                            <div class="py-2 rounded-xl border border-slate-200 peer-checked:bg-rose-500 peer-checked:text-white peer-checked:border-rose-500 text-sm font-bold text-slate-600 hover:bg-slate-50">3 ⭐</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="desain" value="4" class="peer hidden">
+                            <div class="py-2 rounded-xl border border-slate-200 peer-checked:bg-rose-500 peer-checked:text-white peer-checked:border-rose-500 text-sm font-bold text-slate-600 hover:bg-slate-50">4 ⭐</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="desain" value="5" class="peer hidden">
+                            <div class="py-2 rounded-xl border border-slate-200 peer-checked:bg-rose-500 peer-checked:text-white peer-checked:border-rose-500 text-sm font-bold text-slate-600 hover:bg-slate-50">5 ⭐</div>
+                        </label>
                     </div>
-
-                    <div>
-                        <label for="firstImpression" class="block text-sm font-medium text-slate-700 mb-1">Kesan Pertama saat Membuka Website</label>
-                        <textarea id="firstImpression" rows="2" placeholder="Contoh: Terlihat elegan, warna sangat pas, animasi halus, dll."
-                                  class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-100 outline-none transition text-sm"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">3</div>
-                    <h3 class="font-semibold text-lg text-slate-800">Evaluasi Fitur-Fitur Utama</h3>
-                </div>
-
-                <p class="text-xs text-slate-500 mb-4">Pilih fitur yang paling Anda sukai atau anggap penting dalam sebuah undangan digital:</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                    <label class="flex items-center gap-3 p-3 border rounded-xl hover:border-rose-300 cursor-pointer transition">
-                        <input type="checkbox" name="usefulFeatures" value="RSVP WhatsApp Instant" class="w-4 h-4 rounded text-rose-500 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-xs font-medium text-slate-700"><i class="fa-brands fa-whatsapp text-emerald-500 mr-1.5 text-sm"></i> RSVP Konfirmasi via WhatsApp</span>
-                    </label>
-
-                    <label class="flex items-center gap-3 p-3 border rounded-xl hover:border-rose-300 cursor-pointer transition">
-                        <input type="checkbox" name="usefulFeatures" value="Navigasi Google Maps" class="w-4 h-4 rounded text-rose-500 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-xs font-medium text-slate-700"><i class="fa-solid fa-map-location-dot text-rose-500 mr-1.5 text-sm"></i> Navigasi Lokasi Google Maps</span>
-                    </label>
-
-                    <label class="flex items-center gap-3 p-3 border rounded-xl hover:border-rose-300 cursor-pointer transition">
-                        <input type="checkbox" name="usefulFeatures" value="Musik Latar Otomatis" class="w-4 h-4 rounded text-rose-500 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-xs font-medium text-slate-700"><i class="fa-solid fa-music text-purple-500 mr-1.5 text-sm"></i> Background Music / Lagu Spesial</span>
-                    </label>
-
-                    <label class="flex items-center gap-3 p-3 border rounded-xl hover:border-rose-300 cursor-pointer transition">
-                        <input type="checkbox" name="usefulFeatures" value="Amplop Digital & Cashless" class="w-4 h-4 rounded text-rose-500 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-xs font-medium text-slate-700"><i class="fa-solid fa-wallet text-amber-500 mr-1.5 text-sm"></i> Amplop Digital / Transfer Bank</span>
-                    </label>
-
-                    <label class="flex items-center gap-3 p-3 border rounded-xl hover:border-rose-300 cursor-pointer transition">
-                        <input type="checkbox" name="usefulFeatures" value="Galeri Foto & Video" class="w-4 h-4 rounded text-rose-500 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-xs font-medium text-slate-700"><i class="fa-regular fa-images text-blue-500 mr-1.5 text-sm"></i> Galeri Momen Foto & Video</span>
-                    </label>
-
-                    <label class="flex items-center gap-3 p-3 border rounded-xl hover:border-rose-300 cursor-pointer transition">
-                        <input type="checkbox" name="usefulFeatures" value="Hitung Mundur Acara (Countdown)" class="w-4 h-4 rounded text-rose-500 focus:ring-rose-400 accent-rose-500">
-                        <span class="text-xs font-medium text-slate-700"><i class="fa-solid fa-clock text-rose-400 mr-1.5 text-sm"></i> Hitung Mundur Hari H (Countdown)</span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">4</div>
-                    <h3 class="font-semibold text-lg text-slate-800">Keterjangkauan & Paket Harga</h3>
-                </div>
-
-                <div class="mb-5 bg-amber-50/60 p-4 rounded-xl border border-amber-200/60 text-xs text-amber-900 leading-relaxed">
-                    <span class="font-bold block mb-1">Rencana Penawaran Paket MomenKita:</span>
-                    • <strong>Paket Basic (Rp 49.000)</strong>: Masa aktif 3 bulan, RSVP, Maps, Foto standar, Musik.<br>
-                    • <strong>Paket Premium (Rp 99.000)</strong>: Masa aktif selamanya, RSVP VIP, Amplop Digital, Galeri Tanpa Batas, Custom Domain option.
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2">Bagaimana pendapat Anda mengenai rencana harga di atas? <span class="text-rose-500">*</span></label>
-                    <div class="space-y-2">
-                        <label class="flex items-center gap-3 p-2.5 border rounded-xl cursor-pointer hover:bg-rose-50/40 transition">
-                            <input type="radio" name="pricePerception" value="Sangat Murah & Worth It" required class="accent-rose-500">
-                            <span class="text-xs text-slate-700">Sangat Murah & Terjangkau (Sangat Layak)</span>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Apakah navigasi web mudah dipahami saat dibuka dari HP?</label>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="kemudahan" value="Sangat Mudah" required class="text-rose-500 focus:ring-rose-500">
+                            <span class="text-sm text-slate-700">Sangat Mudah</span>
                         </label>
-                        <label class="flex items-center gap-3 p-2.5 border rounded-xl cursor-pointer hover:bg-rose-50/40 transition">
-                            <input type="radio" name="pricePerception" value="Pas / Sesuai Standar" class="accent-rose-500">
-                            <span class="text-xs text-slate-700">Pas / Wajar sesuai dengan fitur yang ditawarkan</span>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="kemudahan" value="Cukup Mudah" class="text-rose-500 focus:ring-rose-500">
+                            <span class="text-sm text-slate-700">Cukup Mudah</span>
                         </label>
-                        <label class="flex items-center gap-3 p-2.5 border rounded-xl cursor-pointer hover:bg-rose-50/40 transition">
-                            <input type="radio" name="pricePerception" value="Agak Mahal" class="accent-rose-500">
-                            <span class="text-xs text-slate-700">Agak Mahal (Perlu diskon/promo tambahan)</span>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="radio" name="kemudahan" value="Sulit" class="text-rose-500 focus:ring-rose-500">
+                            <span class="text-sm text-slate-700">Sulit / Bingung</span>
                         </label>
                     </div>
                 </div>
             </div>
 
-            <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">5</div>
-                    <h3 class="font-semibold text-lg text-slate-800">Kemudahan & Recommendation Score</h3>
+            <!-- 3. Fitur & Harga -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 border-b pb-2 flex items-center gap-2">
+                    <span class="w-6 h-6 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                    Fitur & Harga Paket
+                </h3>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Fitur mana yang menurut Anda paling berguna? (Bisa pilih lebih dari 1)</label>
+                    <div class="grid grid-cols-2 gap-2 text-sm text-slate-700">
+                        <label class="flex items-center gap-2 p-2 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" name="fitur" value="RSVP WhatsApp" class="rounded text-rose-500"> RSVP via WhatsApp
+                        </label>
+                        <label class="flex items-center gap-2 p-2 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" name="fitur" value="Peta Google Maps" class="rounded text-rose-500"> Navigasi Maps
+                        </label>
+                        <label class="flex items-center gap-2 p-2 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" name="fitur" value="Musik Background" class="rounded text-rose-500"> Musik Latar
+                        </label>
+                        <label class="flex items-center gap-2 p-2 border rounded-xl hover:bg-slate-50 cursor-pointer">
+                            <input type="checkbox" name="fitur" value="Amplop Digital" class="rounded text-rose-500"> Amplop Digital
+                        </label>
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-2">
-                        Seberapa besar kemungkinan Anda merekomendasikan MomenKita ke teman/kerabat yang akan menikah? <span class="text-rose-500">*</span>
-                    </label>
-                    
-                    <div class="flex justify-between items-center text-xs text-slate-400 mb-1 px-1">
-                        <span>Sangat Tidak Mungkin</span>
-                        <span>Sangat Mungkin</span>
-                    </div>
-
-                    <div class="grid grid-cols-5 md:grid-cols-10 gap-1.5 mb-3">
-                        <script>
-                            for(let i=1; i<=10; i++) {
-                                document.write(`
-                                    <label class="cursor-pointer text-center">
-                                        <input type="radio" name="npsScore" value="${i}" class="peer hidden" ${i===10 ? 'required' : ''}>
-                                        <div class="py-2.5 border rounded-xl font-bold text-xs text-slate-600 peer-checked:bg-rose-500 peer-checked:text-white peer-checked:border-rose-500 hover:border-rose-300 transition">
-                                            ${i}
-                                        </div>
-                                    </label>
-                                `);
-                            }
-                        </script>
-                    </div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Bagaimana pendapat Anda tentang penawaran harga (Rp 49rb - 99rb)?</label>
+                    <select id="harga_opinion" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-rose-500 text-sm bg-white">
+                        <option value="">-- Pilih Pendapat --</option>
+                        <option value="Sangat Murah">Sangat Murah & Terjangkau</option>
+                        <option value="Pas / Sesuai">Pas & Sesuai dengan Fitur</option>
+                        <option value="Agak Mahal">Agak Mahal</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="glass-card rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                <div class="flex items-center gap-3 mb-5 border-b border-rose-100 pb-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm">6</div>
-                    <h3 class="font-semibold text-lg text-slate-800">Saran & Masukan Tambahan</h3>
-                </div>
-
+            <!-- 4. Saran & Masukan -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-bold text-slate-900 border-b pb-2 flex items-center gap-2">
+                    <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                    Saran & Masukan
+                </h3>
                 <div>
-                    <label for="feedbackMessage" class="block text-sm font-medium text-slate-700 mb-1">
-                        Apa yang perlu kami tingkatkan atau tambahkan pada MomenKita?
-                    </label>
-                    <textarea id="feedbackMessage" rows="3" placeholder="Tuliskan ide tema, fitur tambahan, atau kendala yang Anda temui..."
-                              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-rose-400 focus:ring-2 focus:ring-rose-100 outline-none transition text-sm"></textarea>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Apa hal yang perlu kami tingkatkan atau perbaiki?</label>
+                    <textarea id="saran" rows="3" placeholder="Tuliskan saran atau kendala yang ditemui..." class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-rose-500 text-sm outline-none"></textarea>
                 </div>
             </div>
 
-            <!-- Submit Button -->
-            <div class="text-center pt-2">
-                <button type="submit" class="w-full md:w-auto px-10 py-3.5 bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-600 hover:to-amber-600 text-white font-bold text-base rounded-2xl shadow-lg shadow-rose-500/25 hover:shadow-xl hover:scale-[1.01] active:scale-95 transition">
-                    <i class="fa-regular fa-paper-plane mr-2"></i> Kirim Umpan Balik
-                </button>
-            </div>
-
-        </form>
-    </main>
-
-    <div id="summaryModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl transform transition-all overflow-hidden flex flex-col max-h-[90vh]">
-            
-            <div class="text-center mb-4">
-                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2 text-xl">
-                    <i class="fa-solid fa-check"></i>
-                </div>
-                <h3 class="text-xl font-bold text-slate-800 font-serif">Terima Kasih!</h3>
-                <p class="text-xs text-slate-500">Tanggapan Anda telah berhasil dirangkum.</p>
-            </div>
-
-            <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 overflow-y-auto mb-4 text-xs font-mono text-slate-700 space-y-2" id="modalSummaryContent">
-                <!-- Data dynamically inserted here -->
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <button onclick="sendToWhatsApp()" class="w-full py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-semibold text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> Kirim ke WhatsApp
-                </button>
-                <button onclick="copyToClipboard()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-semibold text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fa-regular fa-copy text-sm"></i> Salin Teks
-                </button>
-            </div>
-
-            <button onclick="closeModal()" class="mt-3 text-xs text-slate-400 hover:text-slate-600 font-medium py-1">
-                Tutup & Kembali
+            <!-- Kirim -->
+            <button type="submit" class="w-full py-4 bg-gradient-to-r from-rose-500 to-indigo-600 text-white font-bold rounded-2xl shadow-lg shadow-indigo-200 hover:opacity-95 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Kirim Hasil Survei via WhatsApp
             </button>
-        </div>
+        </form>
     </div>
-
-    <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 text-white px-4 py-2.5 rounded-xl shadow-xl text-xs font-medium translate-y-20 opacity-0 transition-all z-50">
-        Notification
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-rose-100 py-6 text-center text-xs text-slate-400">
-        <p>&copy; 2026 MomenKita. Dibuat dengan cinta untuk momen berharga Anda.</p>
-    </footer>
 
     <script>
-        let currentRating = 0;
-        let lastFormData = null;
-
-        // Interactive Star Rating Logic
-        function setStarRating(rating) {
-            currentRating = rating;
-            document.getElementById('designRating').value = rating;
-            
-            const stars = document.querySelectorAll('#designRatingContainer button i');
-            const labels = ['Sangat Bad', 'Kurang', 'Cukup Bagus', 'Bagus & Rapi', 'Sangat Elegan & Sempurna!'];
-            
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.className = 'fa-solid fa-star text-amber-400';
-                } else {
-                    star.className = 'fa-solid fa-star text-slate-300';
-                }
-            });
-
-            document.getElementById('ratingLabel').innerText = `${rating}/5 - ${labels[rating-1]}`;
-            updateProgress();
-        }
-
-        // Real-time Progress Bar Calculation
-        function updateProgress() {
-            const form = document.getElementById('surveyForm');
-            const inputs = form.querySelectorAll('input[required], textarea[required]');
-            let filled = 0;
-
-            if(document.getElementById('fullName').value.trim() !== '') filled++;
-            if(document.querySelector('input[name="role"]:checked')) filled++;
-            if(currentRating > 0) filled++;
-            if(document.querySelector('input[name="pricePerception"]:checked')) filled++;
-            if(document.querySelector('input[name="npsScore"]:checked')) filled++;
-
-            const totalRequired = 5;
-            const percentage = Math.round((filled / totalRequired) * 100);
-            document.getElementById('progressBar').style.width = `${percentage}%`;
-        }
-
-        // Attach listeners for progress update
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('surveyForm');
-            form.addEventListener('input', updateProgress);
-            form.addEventListener('change', updateProgress);
-        });
-
-        // Form Submit Handler
-        function handleFormSubmit(e) {
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            if (currentRating === 0) {
-                showToast('Mohon berikan rating tampilan terlebih dahulu!');
-                return;
-            }
-
-            // Gather values
-            const name = document.getElementById('fullName').value.trim();
-            const role = document.querySelector('input[name="role"]:checked')?.value || '-';
-            const designImpression = document.getElementById('firstImpression').value.trim() || 'Tidak ada catatan';
             
-            const selectedFeatures = Array.from(document.querySelectorAll('input[name="usefulFeatures"]:checked'))
-                .map(cb => cb.value);
+            const nama = document.getElementById('nama').value;
+            const status = document.getElementById('status').value;
+            const desain = document.querySelector('input[name="desain"]:checked')?.value || '-';
+            const kemudahan = document.querySelector('input[name="kemudahan"]:checked')?.value || '-';
+            const harga = document.getElementById('harga_opinion').value;
+            const saran = document.getElementById('saran').value || 'Tidak ada';
 
-            const pricePerception = document.querySelector('input[name="pricePerception"]:checked')?.value || '-';
-            const npsScore = document.querySelector('input[name="npsScore"]:checked')?.value || '-';
-            const suggestions = document.getElementById('feedbackMessage').value.trim() || 'Tidak ada saran tambahan';
+            const fiturChecked = Array.from(document.querySelectorAll('input[name="fitur"]:checked')).map(cb => cb.value).join(', ') || 'Tidak ada';
 
-            lastFormData = {
-                name,
-                role,
-                rating: currentRating,
-                designImpression,
-                features: selectedFeatures.length ? selectedFeatures : ['Tidak ada yang dipilih'],
-                pricePerception,
-                npsScore,
-                suggestions,
-                date: new Date().toLocaleString('id-ID')
-            };
+            const pesanWA = `*HASIL SURVEI MOMENKITA*%0A%0A` +
+                `👤 *Nama:* ${nama}%0A` +
+                `🏷️ *Status:* ${status}%0A` +
+                `⭐ *Rating Desain:* ${desain}/5%0A` +
+                `📱 *Kemudahan:* ${kemudahan}%0A` +
+                `💡 *Fitur Favorit:* ${fiturChecked}%0A` +
+                `💰 *Pendapat Harga:* ${harga}%0A` +
+                `💬 *Saran:* ${saran}`;
 
-            // Render modal preview
-            const modalSummary = document.getElementById('modalSummaryContent');
-            modalSummary.innerHTML = `
-                <p><strong>Nama:</strong> ${lastFormData.name}</p>
-                <p><strong>Status:</strong> ${lastFormData.role}</p>
-                <p><strong>Rating UI/UX:</strong> ${lastFormData.rating}/5 ⭐</p>
-                <p><strong>Kesan Visual:</strong> "${lastFormData.designImpression}"</p>
-                <p><strong>Fitur Favorit:</strong> ${lastFormData.features.join(', ')}</p>
-                <p><strong>Penilaian Harga:</strong> ${lastFormData.pricePerception}</p>
-                <p><strong>Skor Rekomendasi (NPS):</strong> ${lastFormData.npsScore}/10</p>
-                <p><strong>Saran:</strong> "${lastFormData.suggestions}"</p>
-            `;
-
-            document.getElementById('summaryModal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('summaryModal').classList.add('hidden');
-        }
-
-        // Send feedback directly via WhatsApp
-        function sendToWhatsApp() {
-            if (!lastFormData) return;
-
-            const text = `*SURVEI UMPAN BALIK MOMENKITA*%0A%0A` +
-                `*Nama:* ${lastFormData.name}%0A` +
-                `*Status:* ${lastFormData.role}%0A` +
-                `*Rating UI/UX:* ${lastFormData.rating}/5 ⭐%0A` +
-                `*Kesan Visual:* ${lastFormData.designImpression}%0A` +
-                `*Fitur Favorit:* ${lastFormData.features.join(', ')}%0A` +
-                `*Pendapat Harga:* ${lastFormData.pricePerception}%0A` +
-                `*Skor Rekomendasi:* ${lastFormData.npsScore}/10%0A` +
-                `*Saran/Masukan:* ${lastFormData.suggestions}`;
-
-            // Ganti nomor WhatsApp berikut jika diperlukan
-            const phoneNumber = ''; 
-            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
-        }
-
-        // Copy formatted feedback summary
-        function copyToClipboard() {
-            if (!lastFormData) return;
-
-            const summaryText = `SURVEI UMPAN BALIK MOMENKITA\n\n` +
-                `Nama: ${lastFormData.name}\n` +
-                `Status: ${lastFormData.role}\n` +
-                `Rating UI/UX: ${lastFormData.rating}/5\n` +
-                `Kesan Visual: ${lastFormData.designImpression}\n` +
-                `Fitur Favorit: ${lastFormData.features.join(', ')}\n` +
-                `Pendapat Harga: ${lastFormData.pricePerception}\n` +
-                `Skor Rekomendasi: ${lastFormData.npsScore}/10\n` +
-                `Saran/Masukan: ${lastFormData.suggestions}`;
-
-            const tempInput = document.createElement('textarea');
-            tempInput.value = summaryText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            showToast('Ringkasan survei berhasil disalin!');
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.innerText = message;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
+            // Nomor pengembang
+            window.open(`https://wa.me/?text=${pesanWA}`, '_blank');
+        });
     </script>
 </body>
 </html>
