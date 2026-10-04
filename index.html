@@ -12,10 +12,10 @@
         .font-serif-custom { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-slate-50 text-slate-800 antialiased relative">
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <span class="text-2xl font-bold bg-gradient-to-r from-rose-500 to-indigo-600 bg-clip-text text-transparent">MomenKita</span>
@@ -107,7 +107,7 @@
         </div>
     </section>
 
-    <!-- TEMA SECTION (BARU) -->
+    <!-- TEMA SECTION -->
     <section id="tema" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -174,7 +174,7 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Maksimal 5 Foto Galeri</li>
                         </ul>
                     </div>
-                    <button class="w-full py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition">Pilih Basic</button>
+                    <button onclick="bukaModalPemesanan('Basic', '49.000')" class="w-full py-3 bg-slate-900 text-white font-semibold rounded-xl hover:bg-slate-800 transition shadow-md active:scale-95">Pilih Basic</button>
                 </div>
 
                 <!-- Paket Premium -->
@@ -192,13 +192,13 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-300"></i> Amplop Digital (Bank / E-Wallet)</li>
                         </ul>
                     </div>
-                    <button class="w-full py-3 bg-white text-rose-600 font-bold rounded-xl hover:bg-rose-50 transition shadow-md">Pilih Premium</button>
+                    <button onclick="bukaModalPemesanan('Premium', '99.000')" class="w-full py-3 bg-white text-rose-600 font-bold rounded-xl hover:bg-rose-50 transition shadow-md active:scale-95">Pilih Premium</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONI SECTION (BARU) -->
+    <!-- TESTIMONI SECTION -->
     <section id="testimoni" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -284,7 +284,128 @@
         font-family: sans-serif;
     ">
         📋 Isi Survei MomenKita
-    </a> 
+    </a>
 
+    <!-- MODAL POPUP CHECKOUT PEMBAYARAN -->
+    <div id="modalOrder" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 max-h-[90vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white p-6 flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Formulir Pemesanan</span>
+                    <h3 id="modalTitle" class="text-xl font-bold">Pemesanan Paket</h3>
+                </div>
+                <button onclick="tutupModalPemesanan()" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <form id="formCheckout" onsubmit="prosesCheckout(event)" class="p-6 overflow-y-auto space-y-4 text-left">
+                <input type="hidden" id="paketInput">
+                <input type="hidden" id="hargaInput">
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Pemesan *</label>
+                    <input type="text" id="namaPemesan" required placeholder="Contoh: Kevin Alvino" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-rose-500 outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">No. WhatsApp *</label>
+                        <input type="tel" id="waPemesan" required placeholder="08123456789" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-rose-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Tanggal Acara *</label>
+                        <input type="date" id="tglAcara" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-rose-500 outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Pasangan (Mempelai) *</label>
+                    <input type="text" id="namaPasangan" required placeholder="Contoh: Romeo & Juliet" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-rose-500 outline-none">
+                </div>
+
+                <!-- Metode Pembayaran -->
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-2">Pilih Metode Pembayaran *</label>
+                    <div class="space-y-2">
+                        <!-- QRIS -->
+                        <label class="flex items-center justify-between p-3 border rounded-xl cursor-pointer hover:bg-slate-50 transition">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="payment" value="QRIS (All Payment)" required class="text-rose-500 focus:ring-rose-500">
+                                <span class="text-sm font-semibold text-slate-800">QRIS (Instan All Payment)</span>
+                            </div>
+                            <span class="text-xs bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded">BCA/GoPay/OVO/Dana</span>
+                        </label>
+
+                        <!-- Bank Transfer -->
+                        <label class="flex items-center justify-between p-3 border rounded-xl cursor-pointer hover:bg-slate-50 transition">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="payment" value="Transfer Bank (BCA / Mandiri / BRI)" class="text-rose-500 focus:ring-rose-500">
+                                <span class="text-sm font-semibold text-slate-800">Transfer Bank</span>
+                            </div>
+                            <span class="text-xs bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded">BCA / Mandiri / BRI / BNI</span>
+                        </label>
+
+                        <!-- E-Wallet -->
+                        <label class="flex items-center justify-between p-3 border rounded-xl cursor-pointer hover:bg-slate-50 transition">
+                            <div class="flex items-center gap-3">
+                                <input type="radio" name="payment" value="E-Wallet (Dana / GoPay / ShopeePay)" class="text-rose-500 focus:ring-rose-500">
+                                <span class="text-sm font-semibold text-slate-800">E-Wallet</span>
+                            </div>
+                            <span class="text-xs bg-purple-100 text-purple-700 font-bold px-2 py-0.5 rounded">DANA / GoPay / ShopeePay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Total Pembayaran -->
+                <div class="p-4 bg-rose-50 rounded-2xl flex justify-between items-center text-rose-900 border border-rose-100">
+                    <span class="text-xs font-semibold">Total Tagihan:</span>
+                    <span id="totalBayar" class="text-xl font-extrabold text-rose-600">Rp 0</span>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-100 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Konfirmasi & Bayar via WA
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPT POPUP METHOD -->
+    <script>
+        function bukaModalPemesanan(namaPaket, harga) {
+            document.getElementById('paketInput').value = namaPaket;
+            document.getElementById('hargaInput').value = harga;
+            document.getElementById('modalTitle').innerText = 'Pemesanan Paket ' + namaPaket;
+            document.getElementById('totalBayar').innerText = 'Rp ' + harga;
+            document.getElementById('modalOrder').classList.remove('hidden');
+        }
+
+        function tutupModalPemesanan() {
+            document.getElementById('modalOrder').classList.add('hidden');
+        }
+
+        function prosesCheckout(e) {
+            e.preventDefault();
+            const paket = document.getElementById('paketInput').value;
+            const harga = document.getElementById('hargaInput').value;
+            const nama = document.getElementById('namaPemesan').value;
+            const wa = document.getElementById('waPemesan').value;
+            const tgl = document.getElementById('tglAcara').value;
+            const pasangan = document.getElementById('namaPasangan').value;
+            const metode = document.querySelector('input[name="payment"]:checked').value;
+
+            const pesanWA = `*HALO ADMIN MOMENKITA, SAYA MAU PESAN UNDANGAN DIGITAL*%0A%0A` +
+                `📦 *Paket:* ${paket} (Rp ${harga})%0A` +
+                `👤 *Nama Pemesan:* ${nama}%0A` +
+                `📱 *No. WA:* ${wa}%0A` +
+                `💍 *Nama Pasangan:* ${pasangan}%0A` +
+                `📅 *Tanggal Acara:* ${tgl}%0A` +
+                `💳 *Metode Pembayaran:* ${metode}%0A%0A` +
+                `Mohon instruksi pengerjaan & nomor rekening/QRIS untuk pembayarannya. Terima kasih!`;
+
+            window.open(`https://wa.me/?text=${pesanWA}`, '_blank');
+            tutupModalPemesanan();
+        }
+    </script>
 </body>
 </html>
